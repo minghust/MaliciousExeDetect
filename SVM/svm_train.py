@@ -75,18 +75,13 @@ def readTestData(inputFile, maxdim):
 #### read train data
 x, y, maxdim = readTrainData("../TrainData/dataset.train")
 
-#### start to train out classifier
-classifier = svm.SVC(kernel='poly', gamma=0.1)
-classifier.fit(x, y)
+#### start to train out SVMclassifier
+#kernel = 'sigmoid'
+kernel = 'poly'
+gamma=0.1
+SVMclassifier = svm.SVC(kernel=kernel, gamma=gamma)
+SVMclassifier.fit(x, y)
 
-# classifier_2 = svm.SVC(kernel='sigmoid')
-# classifier_2.fit(x, y)
-
-# classifier_3 = svm.SVC(kernel='sigmoid')
-# classifier_3.fit(x, y)
-
-# classifier_4 = svm.SVC(kernel='sigmoid')
-# classifier_5.fit(x, y)
 #### read test data
 x, y = readTestData("../TestData/test.txt", maxdim)
 
@@ -97,8 +92,10 @@ if __name__ == '__main__':
     rightNum = 0
     for i in range(0, len(y)):
         each_test = x[i]
-        res=classifier.predict(np.array(each_test).reshape(1, -1))
+        res=SVMclassifier.predict(np.array(each_test).reshape(1, -1))
         if y[i] == res.tolist()[0]:
             rightNum += 1
     
+    print('kernel:' +kernel)
+    print('gamma: '+str(gamma))
     print("正确率："+str(rightNum/len(y)))

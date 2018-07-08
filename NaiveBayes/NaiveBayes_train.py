@@ -32,7 +32,7 @@ def readTrainData(inputFile):
     # maxdim = maxdim + 1
     
     x = []
-    # 数据维度不一致，无法使用svm，此处将数据维度调整一致
+    # 数据维度不一致，无法使用naivebayes，此处将数据维度调整一致
     for sample in sample_attr:
         attr = [0]*maxdim
         for i in sample:
@@ -93,4 +93,5 @@ if __name__ == '__main__':
         if y[i] == res[0]:
             rightNum += 1
     
+    print('Gaussian NavieBayes method')
     print("正确率："+str(rightNum/len(y)))
