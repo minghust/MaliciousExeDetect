@@ -20,6 +20,6 @@
 
 ## Run
 ```sh
-    cd KNN
-    python3 knn_train.py
+cd KNN
+python3 knn_train.py
 ```
