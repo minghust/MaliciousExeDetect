@@ -1,6 +1,7 @@
 # Detecting malicious executable files using machine learning
 
 ## Dir tree
+```sh
 ├── KNN
 │   └── knn_train.py
 ├── NaiveBayes
@@ -11,6 +12,7 @@
 │   └── test.txt - testing set
 ├── TrainData
     └── dataset.train - training set
+```
 
 ## Needed libs
 - sklearn
